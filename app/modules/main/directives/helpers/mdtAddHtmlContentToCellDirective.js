@@ -7,7 +7,7 @@
             link: function($scope, element, attr){
                 $scope.$watch(attr.mdtAddHtmlContentToCell, function(val){
                     element.empty();
-                    element.append(val.value);
+                    element.append(val);
                 }, true);
             }
         };
