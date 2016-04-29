@@ -92,6 +92,12 @@
                 $scope.deleteSelectedRows = deleteSelectedRows;
                 $scope.getNumberOfSelectedRows = _.bind(ctrl.tableDataStorageService.getNumberOfSelectedRows, ctrl.tableDataStorageService);
 
+                function editSelectedRow(){
+                    var editedRow = ctrl.tableDataStorageService.editSelectedRow();
+
+                    $scope.editRowCallback({row: editedRow});
+                }
+
                 function deleteSelectedRows(){
                     var deletedRows = ctrl.tableDataStorageService.deleteSelectedRows();
 
@@ -214,6 +220,7 @@
                 selectableRows: '=',
                 alternateHeaders: '=',
                 sortableColumns: '=',
+                editRowCallback: '&',
                 deleteRowCallback: '&',
                 selectedRowCallback: '&',
                 saveRowCallback: '&',
@@ -513,6 +520,28 @@
             });
 
             return deletedRows;
+        };
+
+        TableDataStorageService.prototype.editSelectedRow = function(){
+            var editedRow = null;
+
+            _.each(this.storage, function(rowData){
+                if(rowData.optionList.selected && rowData.optionList.deleted === false){
+
+                    //if(rowData.rowId){
+                    //    deletedRows.push(rowData.rowId);
+                    //
+                    //    //Fallback when no id was specified
+                    //} else{
+                    //    deletedRows.push(rowData.data);
+                    //}
+
+                    editedRow = rowData;
+
+                }
+            });
+
+            return editedRow;
         };
 
         TableDataStorageService.prototype.getSelectedRows = function(){

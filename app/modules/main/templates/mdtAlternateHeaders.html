@@ -1,5 +1,10 @@
 <div class="mdt-header-alternate" layout="row" layout-align="start center">
     <span class="alternate-text" flex>{{getNumberOfSelectedRows()}} item selected</span>
+
+    <md-button class="md-icon-button md-primary" ng-click="editSelectedRow()" ng-show="getNumberOfSelectedRows() === 1" aria-label="Edit selected rows">
+        <ng-md-icon icon="edit" size="24"></ng-md-icon>
+    </md-button>
+
     <md-button class="md-icon-button md-primary" ng-click="deleteSelectedRows()" aria-label="Delete selected rows">
         <ng-md-icon icon="delete" size="24"></ng-md-icon>
     </md-button>

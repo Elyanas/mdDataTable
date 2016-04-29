@@ -106,6 +106,7 @@
                 selectableRows: '=',
                 alternateHeaders: '=',
                 sortableColumns: '=',
+                editRowCallback: '&',
                 deleteRowCallback: '&',
                 selectedRowCallback: '&',
                 saveRowCallback: '&',

@@ -139,6 +139,28 @@
             return deletedRows;
         };
 
+        TableDataStorageService.prototype.editSelectedRow = function(){
+            var editedRow = null;
+
+            _.each(this.storage, function(rowData){
+                if(rowData.optionList.selected && rowData.optionList.deleted === false){
+
+                    //if(rowData.rowId){
+                    //    deletedRows.push(rowData.rowId);
+                    //
+                    //    //Fallback when no id was specified
+                    //} else{
+                    //    deletedRows.push(rowData.data);
+                    //}
+
+                    editedRow = rowData;
+
+                }
+            });
+
+            return editedRow;
+        };
+
         TableDataStorageService.prototype.getSelectedRows = function(){
             var selectedRows = [];
 
