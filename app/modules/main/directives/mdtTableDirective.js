@@ -37,6 +37,10 @@
      *      (not implemented yet: Use `sortable-rows-default` attribute directive on a column which intended to be the
      *      default sortable column)
      *
+     * @param {function(rows)=} editRowCallback callback function when editing a row.
+     *      At default an array of the deleted row's data will be passed as the argument.
+     *      When `table-row-id` set for the deleted row then that value will be passed.
+     *
      * @param {function(rows)=} deleteRowCallback callback function when deleting rows.
      *      At default an array of the deleted row's data will be passed as the argument.
      *      When `table-row-id` set for the deleted row then that value will be passed.

@@ -10,7 +10,9 @@
             scope: true,
             require: '^mdtTable',
             link: function($scope, element, attrs, ctrl){
+                $scope.editSelectedRow = editSelectedRow;
                 $scope.deleteSelectedRows = deleteSelectedRows;
+
                 $scope.getNumberOfSelectedRows = _.bind(ctrl.tableDataStorageService.getNumberOfSelectedRows, ctrl.tableDataStorageService);
 
                 function editSelectedRow(){
